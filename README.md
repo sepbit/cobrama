@@ -33,14 +33,6 @@ api_base_url = INSTANCE
 $ source ./env/bin/activate && covid19br ./config.ini
 ```
 
-### Optional 
-
-Auto sync, execute `$ crontab -e` and add the lines
-
-```
-0 * * * * bash -c 'source /path/env/bin/activate && covid19br /path/config.ini'
-```
-
 # Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
