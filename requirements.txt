@@ -1,0 +1,6 @@
+setuptools==40.8.0
+wheel==0.33.6
+check-manifest==0.40
+pylint==2.4.4
+tox==3.14.3
+Mastodon.py==1.5.1
