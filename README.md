@@ -30,7 +30,8 @@ api_base_url = INSTANCE
 # Usage
 
 ``` bash
-$ source ./env/bin/activate && covid19br ./config.ini
+$ source ./env/bin/activate
+$ covid19br config.ini
 ```
 
 # Change log
