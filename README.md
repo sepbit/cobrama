@@ -38,7 +38,7 @@ $ source ./env/bin/activate && covid19br ./config.ini
 Auto sync, execute `$ crontab -e` and add the lines
 
 ```
-0 * * * * sh -c 'source /path/env/bin/activate && covid19br /path/config.ini'
+0 * * * * bash -c 'source /path/env/bin/activate && covid19br /path/config.ini'
 ```
 
 # Change log
