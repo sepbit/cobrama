@@ -46,7 +46,7 @@ def world(file_config):
     obj = json.loads(res)
 
     try:
-        with open(config['GENERAL']['cache'] + '/all.json', 'r') as file:
+        with open(config['GENERAL']['cache'] + '/world.json', 'r') as file:
             local = file.read()
 
         local = json.loads(local)
@@ -55,7 +55,7 @@ def world(file_config):
         local = 1
 
     if obj['updated'] > local:
-        with open(config['GENERAL']['cache'] + '/all.json', 'wb') as file:
+        with open(config['GENERAL']['cache'] + '/world.json', 'wb') as file:
             file.write(res)
             file.close()
 
