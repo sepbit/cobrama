@@ -60,7 +60,7 @@ def world(file_config):
             file.close()
 
         date = datetime.datetime.fromtimestamp(obj['updated']/1000.0)
-        date = date.strftime("%Y-%m-%d %H:%M:%S")
+        date = date.strftime("%d/%m/%Y %H:%M:%S")
 
         report = "Atualização: " + date
         report += "\nCasos: " + mask(obj['cases'])
