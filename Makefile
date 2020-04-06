@@ -15,7 +15,7 @@ test:
 doc:
 	mkdir -p doc/pydoc
 	cd doc/pydoc
-	python -m pydoc -w sepbit.hellopy
+	python -m pydoc -w sepbit.covid19br
 	@echo Doc completed!
 
 .PHONY: clean
@@ -28,6 +28,5 @@ clean:
 
 .PHONY: tags
 tags:
-	ctags -R --languages=python --python-kinds=cfmi src
-	ctags -R --languages=python --python-kinds=cfmi -f tags -pipenv $(pipenv --venv)/lib/python3.7
+	ctags -R .
 	@echo Tags completed!
