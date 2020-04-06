@@ -33,7 +33,7 @@ setup(
     author='Vitor Guia',
     maintainer='Sepbit',
     maintainer_email='contato@sepbit.com',
-    author_email='contato@vitor.guia.nom.com',
+    author_email='contato@vitor.guia.nom.br',
     url='https://gitlab.com/sepbit/covid19br',
     packages=['sepbit.covid19br'],
     python_requires='~=3.7',
