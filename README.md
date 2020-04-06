@@ -38,7 +38,6 @@ $ source ./env/bin/activate && covid19br ./config.ini
 Auto sync, execute `$ crontab -e` and add the lines
 
 ```
-DISPLAY=:0
 0 * * * * sh -c 'source /path/env/bin/activate && covid19br /path/config.ini'
 ```
 
