@@ -17,18 +17,10 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 
 import configparser
-import datetime
 import json
 from urllib.request import Request, urlopen
 from mastodon import Mastodon
-
-
-def mask(value):
-    """
-    Mask value
-    """
-    value = '{:,d}'.format(value)
-    return str(value.replace(',', '.'))
+from .br_utils import br_date, br_mask
 
 def brazil(file_config):
     """
@@ -58,20 +50,17 @@ def brazil(file_config):
             file.write(res)
             file.close()
 
-        date = datetime.datetime.fromtimestamp(obj['updated']/1000.0)
-        date = date.strftime("%d/%m/%Y %H:%M:%S")
-
-        report = "Atualização: " + date
-        report += "\nCasos: " + mask(obj['cases'])
-        report += "\nCasos hoje: " + mask(obj['todayCases'])
-        report += "\nMortes: " + mask(obj['deaths'])
-        report += "\nMortes hoje: " + mask(obj['todayDeaths'])
-        report += "\nRecuperados: " + mask(obj['recovered'])
-        report += "\nAtivos: " + mask(obj['active'])
-        report += "\nCríticos: " + mask(obj['critical'])
+        report = "Atualização: " + br_date(obj['updated'])
+        report += "\nCasos: " + br_mask(obj['cases'])
+        report += "\nCasos hoje: " + br_mask(obj['todayCases'])
+        report += "\nMortes: " + br_mask(obj['deaths'])
+        report += "\nMortes hoje: " + br_mask(obj['todayDeaths'])
+        report += "\nRecuperados: " + br_mask(obj['recovered'])
+        report += "\nAtivos: " + br_mask(obj['active'])
+        report += "\nCríticos: " + br_mask(obj['critical'])
         report += "\nCasos por um milhão: " + str(obj['casesPerOneMillion'])
         report += "\nMortes por um milhão: " + str(obj['deathsPerOneMillion'])
-        report += "\nTestes: " + mask(obj['tests'])
+        report += "\nTestes: " + br_mask(obj['tests'])
         report += "\nTestes por um milhão: " + str(obj['testsPerOneMillion'])
         report += "\n\n#COVID19 #Brasil"
 

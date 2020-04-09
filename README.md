@@ -2,6 +2,8 @@
 
 > Covid19BR - Report COVID-19 Brasil on Mastodon
 
+Open data [Novel API](https://github.com/novelcovid/api)
+
 This package is compatible with [Pylint](https://www.pylint.org/).
 
 # Install

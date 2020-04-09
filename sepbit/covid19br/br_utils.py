@@ -16,11 +16,19 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 
-__author__ = 'Vitor Guia <contato@vitor.guia.nom.br>'
-__credits__ = 'https://gitlab.com/sepbit/covid19br'
+import datetime
 
-from .world import world
-from .brazil import brazil
-from .br_utils import br_date, br_mask
+def br_date(timestamp):
+    """
+    Set Locale Brazil
+    """
+    timestamp = datetime.datetime.fromtimestamp(timestamp/1000.0)
+    timestamp = timestamp.strftime("%d/%m/%Y %H:%M:%S")
+    return timestamp
 
-__all__ = ['world', 'brazil', 'br_date', 'br_mask']
+def br_mask(value):
+    """
+    Mask value
+    """
+    value = '{:,d}'.format(value)
+    return str(value.replace(',', '.'))
