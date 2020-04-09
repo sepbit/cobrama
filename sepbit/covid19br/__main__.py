@@ -18,15 +18,18 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 
-
+import os
+import time
 import sys
-from sepbit.covid19br import world, brazil
-
+from sepbit.covid19br import brazil, world
 
 def main():
     """
     Entry point
     """
+    os.environ['TZ'] = 'America/Sao_Paulo'
+    time.tzset()
+
     if len(sys.argv) == 2 and sys.argv[1] == '--help':
         print('Covid19BR  Copyright (C) 2020  Sepbit')
         print("This program comes with ABSOLUTELY NO WARRANTY;")
