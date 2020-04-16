@@ -9,7 +9,7 @@ This package is compatible with [Pylint](https://www.pylint.org/).
 # Install
 
 ``` bash
-# apt install -y python3-pip python3-setuptools python3-wheel python3-venv python3-tk python3-dev
+# apt install -y python3-pip python3-setuptools python3-wheel python3-venv python3-dev
 ```
 
 ``` bash
