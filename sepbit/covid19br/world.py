@@ -60,8 +60,8 @@ def world(file_config):
         report += "\nCríticos: " + br_mask(obj['critical'])
         report += "\nCasos por um milhão: " + str(obj['casesPerOneMillion'])
         report += "\nMortes por um milhão: " + str(obj['deathsPerOneMillion'])
-        # report += "\nTestes: " + br_mask(obj['tests'])
-        # report += "\nTestes por um milhão: " + str(obj['testsPerOneMillion'])
+        report += "\nTestes: " + br_mask(obj['tests'])
+        report += "\nTestes por um milhão: " + str(obj['testsPerOneMillion'])
         report += "\nPaíses afetados: " + br_mask(obj['affectedCountries'])
         report += "\n\n#COVID19"
 

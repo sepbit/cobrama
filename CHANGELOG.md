@@ -2,6 +2,10 @@
 
 See [Keep a Changelog](http://keepachangelog.com/).
 
+## [1.0.2] - 202-04-17
+### Changed
+- Changed to api v2
+
 ## [1.0.1] - 2020-04-09
 ### Fixed 
 - Fix timezone
