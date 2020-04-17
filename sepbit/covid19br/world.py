@@ -58,16 +58,15 @@ def world(file_config):
         report += "\nRecuperados: " + br_mask(obj['recovered'])
         report += "\nAtivos: " + br_mask(obj['active'])
         report += "\nCríticos: " + br_mask(obj['critical'])
-        report += "\nCasos por um milhão: " + br_mask(obj['casesPerOneMillion'])
-        report += "\nMortes por um milhão: " + br_mask(obj['deathsPerOneMillion'])
+        report += "\nCasos por um milhão: " + str(obj['casesPerOneMillion'])
+        report += "\nMortes por um milhão: " + str(obj['deathsPerOneMillion'])
         report += "\nTestes: " + br_mask(obj['tests'])
-        report += "\nTestes por um milhão: " + br_mask(obj['testsPerOneMillion'])
+        report += "\nTestes por um milhão: " + str(obj['testsPerOneMillion'])
         report += "\nPaíses afetados: " + br_mask(obj['affectedCountries'])
         report += "\n\n#bot #covid #COVID19 #coronavirus"
-        print(report)
 
-        #mastodon = Mastodon(
-        #    access_token=config['MASTODON']['access_token'],
-        #    api_base_url=config['MASTODON']['api_base_url']
-        #)
-        #mastodon.status_post(report, spoiler_text='Atualização COVID-19 Mundo')
+        mastodon = Mastodon(
+            access_token=config['MASTODON']['access_token'],
+            api_base_url=config['MASTODON']['api_base_url']
+        )
+        mastodon.status_post(report, spoiler_text='Atualização COVID-19 Mundo')
