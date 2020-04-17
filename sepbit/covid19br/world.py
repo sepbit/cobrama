@@ -63,7 +63,7 @@ def world(file_config):
         report += "\nTestes: " + br_mask(obj['tests'])
         report += "\nTestes por um milhão: " + br_mask(obj['testsPerOneMillion'])
         report += "\nPaíses afetados: " + br_mask(obj['affectedCountries'])
-        report += "\n\n#COVID19"
+        report += "\n\n#bot #covid #COVID19 #coronavirus"
         print(report)
 
         #mastodon = Mastodon(

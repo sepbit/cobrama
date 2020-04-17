@@ -62,7 +62,7 @@ def brazil(file_config):
         report += "\nMortes por um milhão: " + br_mask(obj['deathsPerOneMillion'])
         report += "\nTestes: " + br_mask(obj['tests'])
         report += "\nTestes por um milhão: " + br_mask(obj['testsPerOneMillion'])
-        report += "\n\n#COVID19 #Brasil"
+        report += "\n\n#bot #covid #COVID19 #coronavirus #Brasil"
         print(report)
 
         #mastodon = Mastodon(
