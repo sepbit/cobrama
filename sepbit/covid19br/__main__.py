@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Covid19BR - Report COVID-19 Brasil on Mastodon
-Copyright (C) 2020  Sepbit
+Copyright (C) 2020 Vitor Guia
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -31,7 +31,7 @@ def main():
     time.tzset()
 
     if len(sys.argv) == 2 and sys.argv[1] == '--help':
-        print('Covid19BR  Copyright (C) 2020  Sepbit')
+        print('Covid19BR  Copyright (C) 2020 Vitor Guia')
         print("This program comes with ABSOLUTELY NO WARRANTY;")
         print('This is free software, and you are welcome to redistribute it')
         print("under certain conditions; See <https://www.gnu.org/licenses/>.")

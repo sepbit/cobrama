@@ -2,6 +2,10 @@
 
 See [Keep a Changelog](http://keepachangelog.com/).
 
+## [1.1.1] - 2020-10-22
+### Changed
+- Changed copyright 
+
 ## [1.1.0] - 2020-10-22
 ### Removed
 - Removed cache
