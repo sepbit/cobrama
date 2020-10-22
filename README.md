@@ -2,9 +2,9 @@
 
 > Covid19BR - Report COVID-19 Brasil on Mastodon
 
-Open data [Novel API](https://github.com/novelcovid/api)
+Open data [Disease.sh](https://github.com/disease-sh/API)
 
-This package is compatible with [Pylint](https://www.pylint.org/).
+This package is compatible with [Pylint](https://www.pylint.org).
 
 # Install
 
@@ -19,14 +19,13 @@ $ python3 -m pip install -r requirements.txt
 $ python3 -m pip install .
 ```
 
-# Configure
+# Usage
 
-Change the uppercase words in the `config.ini` file, according to your instance
+Define the `INSTANCE` and `TOKEN` variables in your development environment, see `.env` file
 
-```
-[MASTODON]
-access_token = TOKEN
-api_base_url = INSTANCE
+``` bash
+$ export INSTANCE="bar foo"
+$ export TOKEN="foo bar"
 ```
 
 # Usage

@@ -2,6 +2,10 @@
 
 See [Keep a Changelog](http://keepachangelog.com/).
 
+## [2.0.0] - 2020-10-22
+### Added
+- Add variable environment
+
 ## [1.1.1] - 2020-10-22
 ### Changed
 - Changed copyright 

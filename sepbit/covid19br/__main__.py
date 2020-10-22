@@ -21,7 +21,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 import os
 import time
 import sys
-from sepbit.covid19br import brazil, world
+from sepbit.covid19br.brazil import brazil
+from sepbit.covid19br.world import world
 
 def main():
     """
@@ -31,21 +32,15 @@ def main():
     time.tzset()
 
     if len(sys.argv) == 2 and sys.argv[1] == '--help':
-        print('Covid19BR  Copyright (C) 2020 Vitor Guia')
-        print("This program comes with ABSOLUTELY NO WARRANTY;")
+        print('Covid19BR  Copyright (C) 2020  Vitor Guia')
+        print('This program comes with ABSOLUTELY NO WARRANTY;')
         print('This is free software, and you are welcome to redistribute it')
-        print("under certain conditions; See <https://www.gnu.org/licenses/>.")
-        print('')
-        print('$ covid19br /path/config.ini')
-        sys.exit(0)
-
-    elif len(sys.argv) == 2:
-        world(sys.argv[1])
-        brazil(sys.argv[1])
+        print('under certain conditions; See <https://www.gnu.org/licenses/>.')
         sys.exit(0)
 
     else:
-        print('type --help for help')
+        world()
+        brazil()
         sys.exit(0)
 
 

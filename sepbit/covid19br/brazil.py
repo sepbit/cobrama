@@ -16,20 +16,17 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 
-import configparser
 import json
+from os import environ
 from urllib.request import Request, urlopen
 from mastodon import Mastodon
-from .br_utils import br_date, br_mask
+from sepbit.covid19br.br_utils import br_date, br_mask
 
-def brazil(file_config):
+def brazil():
     """
     Brazil report
     """
-    config = configparser.ConfigParser()
-    config.read(file_config)
-
-    endpoint = config['GENERAL']['endpoint'] + '/countries/brazil'
+    endpoint = 'https://corona.lmao.ninja/v2/countries/brazil'
     req = Request(endpoint, headers={'User-Agent': 'Mozilla/5.0'})
     with urlopen(req) as res:
         res = res.read()
@@ -51,7 +48,7 @@ def brazil(file_config):
     report += "\n\n#bot #covid #COVID19 #coronavirus #Brasil"
 
     mastodon = Mastodon(
-        access_token=config['MASTODON']['access_token'],
-        api_base_url=config['MASTODON']['api_base_url']
+        access_token=environ['TOKEN'],
+        api_base_url=environ['INSTANCE']
     )
     mastodon.status_post(report, spoiler_text='Atualização COVID-19 Brasil')
