@@ -1,6 +1,6 @@
 """
 Covid19BR - Report COVID-19 Brasil on Mastodon
-Copyright (C) 2020  Sepbit
+Copyright (C) 2020 Vitor Guia
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
