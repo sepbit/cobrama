@@ -36,36 +36,22 @@ def brazil(file_config):
 
     obj = json.loads(res)
 
-    try:
-        with open(config['GENERAL']['cache'] + '/brazil.json', 'r') as file:
-            local = file.read()
+    report = "Atualização: " + br_date(obj['updated'])
+    report += "\nCasos: " + br_mask(obj['cases'])
+    report += "\nCasos hoje: " + br_mask(obj['todayCases'])
+    report += "\nMortes: " + br_mask(obj['deaths'])
+    report += "\nMortes hoje: " + br_mask(obj['todayDeaths'])
+    report += "\nRecuperados: " + br_mask(obj['recovered'])
+    report += "\nAtivos: " + br_mask(obj['active'])
+    report += "\nCríticos: " + br_mask(obj['critical'])
+    report += "\nCasos por um milhão: " + str(obj['casesPerOneMillion'])
+    report += "\nMortes por um milhão: " + str(obj['deathsPerOneMillion'])
+    report += "\nTestes: " + br_mask(obj['tests'])
+    report += "\nTestes por um milhão: " + str(obj['testsPerOneMillion'])
+    report += "\n\n#bot #covid #COVID19 #coronavirus #Brasil"
 
-        local = json.loads(local)
-        local = local['updated']
-    except IOError:
-        local = 1
-
-    if obj['updated'] > local:
-        with open(config['GENERAL']['cache'] + '/brazil.json', 'wb') as file:
-            file.write(res)
-            file.close()
-
-        report = "Atualização: " + br_date(obj['updated'])
-        report += "\nCasos: " + br_mask(obj['cases'])
-        report += "\nCasos hoje: " + br_mask(obj['todayCases'])
-        report += "\nMortes: " + br_mask(obj['deaths'])
-        report += "\nMortes hoje: " + br_mask(obj['todayDeaths'])
-        report += "\nRecuperados: " + br_mask(obj['recovered'])
-        report += "\nAtivos: " + br_mask(obj['active'])
-        report += "\nCríticos: " + br_mask(obj['critical'])
-        report += "\nCasos por um milhão: " + str(obj['casesPerOneMillion'])
-        report += "\nMortes por um milhão: " + str(obj['deathsPerOneMillion'])
-        report += "\nTestes: " + br_mask(obj['tests'])
-        report += "\nTestes por um milhão: " + str(obj['testsPerOneMillion'])
-        report += "\n\n#bot #covid #COVID19 #coronavirus #Brasil"
-
-        mastodon = Mastodon(
-            access_token=config['MASTODON']['access_token'],
-            api_base_url=config['MASTODON']['api_base_url']
-        )
-        mastodon.status_post(report, spoiler_text='Atualização COVID-19 Brasil')
+    mastodon = Mastodon(
+        access_token=config['MASTODON']['access_token'],
+        api_base_url=config['MASTODON']['api_base_url']
+    )
+    mastodon.status_post(report, spoiler_text='Atualização COVID-19 Brasil')
