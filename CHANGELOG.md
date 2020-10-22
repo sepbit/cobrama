@@ -2,7 +2,11 @@
 
 See [Keep a Changelog](http://keepachangelog.com/).
 
-## [1.0.2] - 202-04-17
+## [1.1.0] - 2020-10-22
+### Removed
+- Removed cache
+
+## [1.0.2] - 2020-04-17
 ### Changed
 - Changed to api v2
 
