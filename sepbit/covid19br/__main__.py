@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
+'''
 Covid19BR - Report COVID-19 Brasil on Mastodon
 Copyright (C) 2020 Vitor Guia
 
@@ -16,32 +16,41 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
-"""
+'''
 
-import os
 import time
-import sys
-from sepbit.covid19br.brazil import brazil
-from sepbit.covid19br.world import world
+from os import environ
+from sepbit.covid19br.mastodon import statuses
+from sepbit.covid19br.disease import brazil, world
 
 def main():
-    """
+    '''
     Entry point
-    """
-    os.environ['TZ'] = 'America/Sao_Paulo'
+    '''
+    environ['TZ'] = 'America/Sao_Paulo'
     time.tzset()
 
-    if len(sys.argv) == 2 and sys.argv[1] == '--help':
-        print('Covid19BR  Copyright (C) 2020  Vitor Guia')
-        print('This program comes with ABSOLUTELY NO WARRANTY;')
-        print('This is free software, and you are welcome to redistribute it')
-        print('under certain conditions; See <https://www.gnu.org/licenses/>.')
-        sys.exit(0)
+    statuses(
+        environ['INSTANCE'],
+        environ['TOKEN'],
+        data = {
+            'spoiler_text' : 'Atualização COVID-19 Brasil',
+            'status': brazil(),
+            'language': 'por',
+            'visibility': 'public'
+        }
+    )
 
-    else:
-        world()
-        brazil()
-        sys.exit(0)
+    statuses(
+        environ['INSTANCE'],
+        environ['TOKEN'],
+        data = {
+            'spoiler_text' : 'Atualização COVID-19 Mundo',
+            'status': world(),
+            'language': 'por',
+            'visibility': 'public'
+        }
+    )
 
 
 if __name__ == '__main__':

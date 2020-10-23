@@ -1,4 +1,4 @@
-"""
+'''
 Covid19BR - Report COVID-19 Brasil on Mastodon
 Copyright (C) 2020 Vitor Guia
 
@@ -14,21 +14,21 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
-"""
+'''
 
 import datetime
 
 def br_date(timestamp):
-    """
-    Set Locale Brazil
-    """
+    '''
+    Set locale Brazil
+    '''
     timestamp = datetime.datetime.fromtimestamp(timestamp/1000.0)
-    timestamp = timestamp.strftime("%d/%m/%Y %H:%M:%S")
+    timestamp = timestamp.strftime('%d/%m/%Y %H:%M:%S')
     return timestamp
 
-def br_mask(value):
-    """
-    Mask value
-    """
+def br_money(value):
+    '''
+    Money format
+    '''
     value = '{:,d}'.format(value)
     return str(value.replace(',', '.'))

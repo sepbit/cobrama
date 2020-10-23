@@ -9,13 +9,12 @@ This package is compatible with [Pylint](https://www.pylint.org).
 # Install
 
 ``` bash
-# apt install -y python3-pip python3-setuptools python3-wheel python3-venv python3-dev
+# apt install -y python3 python3-pip python3-setuptools python3-wheel python3-venv python3-dev
 ```
 
 ``` bash
 $ python3 -m venv env
 $ source ./env/bin/activate
-$ python3 -m pip install -r requirements.txt
 $ python3 -m pip install .
 ```
 
@@ -24,15 +23,17 @@ $ python3 -m pip install .
 Define the `INSTANCE` and `TOKEN` variables in your development environment, see `.env` file
 
 ``` bash
-$ export INSTANCE="bar foo"
-$ export TOKEN="foo bar"
+$ export INSTANCE="foo bar"
+$ export TOKEN="bar foo"
 ```
 
 # Usage
 
+If there are no problems, there will be no message
+
 ``` bash
 $ source ./env/bin/activate
-$ covid19br config.ini
+$ covid19br 
 ```
 
 # Change log
