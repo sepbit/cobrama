@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
+'''
 Covid19BR - Report COVID-19 Brasil on Mastodon
 Copyright (C) 2020 Vitor Guia
 
@@ -16,7 +16,7 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
-"""
+'''
 
 from setuptools import setup
 
@@ -25,7 +25,7 @@ with open('README.md', 'r') as f:
 
 setup(
     name='sepbit.covid19br',
-    version='1.0.0',
+    version='2.1.0',
     description='Report COVID-19 Brasil on Mastodon',
     long_description=README,
     license='GPL-3.0-or-later',
@@ -37,8 +37,7 @@ setup(
     url='https://gitlab.com/sepbit/covid19br',
     packages=['sepbit.covid19br'],
     python_requires='~=3.7',
-    install_requires=['setuptools', 'Mastodon.py'],
-    # $ pip install sampleproject[dev]
+    install_requires=['setuptools'],
     extras_require={
         'dev': ['check-manifest'],
         'test': ['coverage'],
