@@ -16,19 +16,30 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 '''
 
-import datetime
+import json
+from urllib.request import Request, urlopen
+from urllib.parse import urlencode
 
-def br_date(timestamp):
-    '''
-    Set locale Brazil
-    '''
-    timestamp = datetime.datetime.fromtimestamp(timestamp/1000.0)
-    timestamp = timestamp.strftime('%d/%m/%Y %H:%M:%S')
-    return timestamp
 
-def br_money(value):
+def statuses(instance, token, data):
     '''
-    Money format
+    Mastodon statuses
+    See https://docs.joinmastodon.org/methods/statuses
     '''
-    value = '{:,d}'.format(value)
-    return str(value.replace(',', '.'))
+
+    data = urlencode(data)
+    data = data.encode('ascii') # data should be bytes
+
+    req = Request(
+        'https://' + instance + '/api/v1/statuses',
+        data,
+        headers={
+            'Content-type': 'application/x-www-form-urlencoded',
+            'Authorization': 'Bearer ' + token
+        },
+        method='POST'
+    )
+    with urlopen(req) as res:
+        res = res.read()
+
+    return json.loads(res)
