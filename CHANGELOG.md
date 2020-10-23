@@ -2,6 +2,14 @@
 
 See [Keep a Changelog](http://keepachangelog.com/).
 
+## [2.1.0] - 2020-10-23
+### Removed
+- Mastodon.py
+
+### Changed
+- Some improvements
+- Changed to api v3
+
 ## [2.0.0] - 2020-10-22
 ### Added
 - Add variable environment
