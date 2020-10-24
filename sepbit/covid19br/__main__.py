@@ -23,6 +23,7 @@ from os import environ
 from sepbit.covid19br.mastodon import statuses
 from sepbit.covid19br.disease import brazil, world
 
+
 def main():
     '''
     Entry point

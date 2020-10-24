@@ -17,70 +17,84 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 '''
 
 import json
+import datetime
 from urllib.request import Request, urlopen
-from sepbit.covid19br.br_utils import br_date, br_money
+
+
+def mask_date(timestamp):
+    '''
+    Mask date
+    '''
+    timestamp = datetime.datetime.fromtimestamp(timestamp/1000.0)
+    timestamp = timestamp.strftime('%d/%m/%Y %H:%M:%S')
+    return timestamp
+
+
+def mask_money(value):
+    '''
+    Mask money
+    '''
+    value = '{:,d}'.format(value)
+    return str(value.replace(',', '.'))
+
 
 def brazil():
     '''
-    Brazil report
+    Brazil statistic
     See https://disease.sh
     '''
-    req = Request(
+    request = Request(
         'https://disease.sh/v3/covid-19/countries/brazil',
         headers={
             'User-Agent': 'Mozilla/5.0'
         }
     )
-    with urlopen(req) as res:
-        res = res.read()
+    with urlopen(request) as response:
+        response = response.read()
 
-    obj = json.loads(res)
-
-    report = 'Atualização: ' + br_date(obj['updated'])
-    report += '\nCasos: ' + br_money(obj['cases'])
-    report += '\nCasos hoje: ' + br_money(obj['todayCases'])
-    report += '\nMortes: ' + br_money(obj['deaths'])
-    report += '\nMortes hoje: ' + br_money(obj['todayDeaths'])
-    report += '\nRecuperados: ' + br_money(obj['recovered'])
-    report += '\nAtivos: ' + br_money(obj['active'])
-    report += '\nCríticos: ' + br_money(obj['critical'])
-    report += '\nCasos por um milhão: ' + str(obj['casesPerOneMillion'])
-    report += '\nMortes por um milhão: ' + str(obj['deathsPerOneMillion'])
-    report += '\nTestes: ' + br_money(obj['tests'])
-    report += '\nTestes por um milhão: ' + str(obj['testsPerOneMillion'])
-    report += '\n\n#bot #covid #COVID19 #coronavirus #Brasil'
-
-    return report
+    date = json.loads(response)
+    message = 'Atualização: ' + mask_date(date['updated'])
+    message += ' UTC\nCasos: ' + mask_money(date['cases'])
+    message += '\nCasos hoje: ' + mask_money(date['todayCases'])
+    message += '\nMortes: ' + mask_money(date['deaths'])
+    message += '\nMortes hoje: ' + mask_money(date['todayDeaths'])
+    message += '\nRecuperados: ' + mask_money(date['recovered'])
+    message += '\nAtivos: ' + mask_money(date['active'])
+    message += '\nCríticos: ' + mask_money(date['critical'])
+    message += '\nCasos por um milhão: ' + str(date['casesPerOneMillion'])
+    message += '\nMortes por um milhão: ' + str(date['deathsPerOneMillion'])
+    message += '\nTestes: ' + mask_money(date['tests'])
+    message += '\nTestes por um milhão: ' + str(date['testsPerOneMillion'])
+    message += '\n\n#bot #covid #COVID19 #coronavirus #Brasil'
+    return message
 
 
 def world():
     '''
-    World report
+    World statistic
     '''
-    req = Request(
+    request = Request(
         'https://disease.sh/v3/covid-19/all',
         headers={
             'User-Agent': 'Mozilla/5.0'
         }
     )
-    with urlopen(req) as res:
-        res = res.read()
+    with urlopen(request) as response:
+        response = response.read()
 
-    obj = json.loads(res)
-
-    report = 'Atualização: ' + br_date(obj['updated'])
-    report += '\nCasos: ' + br_money(obj['cases'])
-    report += '\nCasos hoje: ' + br_money(obj['todayCases'])
-    report += '\nMortes: ' + br_money(obj['deaths'])
-    report += '\nMortes hoje: ' + br_money(obj['todayDeaths'])
-    report += '\nRecuperados: ' + br_money(obj['recovered'])
-    report += '\nAtivos: ' + br_money(obj['active'])
-    report += '\nCríticos: ' + br_money(obj['critical'])
-    report += '\nCasos por um milhão: ' + str(obj['casesPerOneMillion'])
-    report += '\nMortes por um milhão: ' + str(obj['deathsPerOneMillion'])
-    report += '\nTestes: ' + br_money(obj['tests'])
-    report += '\nTestes por um milhão: ' + str(obj['testsPerOneMillion'])
-    report += '\nPaíses afetados: ' + br_money(obj['affectedCountries'])
-    report += '\n\n#bot #covid #COVID19 #coronavirus'
-
-    return report
+    date = json.loads(response)
+    message = 'Atualização: ' + mask_date(date['updated'])
+    message += ' UTC\nCasos: ' + mask_money(date['cases'])
+    message += '\nCasos hoje: ' + mask_money(date['todayCases'])
+    message += '\nMortes: ' + mask_money(date['deaths'])
+    message += '\nMortes hoje: ' + mask_money(date['todayDeaths'])
+    message += '\nRecuperados: ' + mask_money(date['recovered'])
+    message += '\nAtivos: ' + mask_money(date['active'])
+    message += '\nCríticos: ' + mask_money(date['critical'])
+    message += '\nCasos por um milhão: ' + str(date['casesPerOneMillion'])
+    message += '\nMortes por um milhão: ' + str(date['deathsPerOneMillion'])
+    message += '\nTestes: ' + mask_money(date['tests'])
+    message += '\nTestes por um milhão: ' + str(date['testsPerOneMillion'])
+    message += '\nPaíses afetados: ' + mask_money(date['affectedCountries'])
+    message += '\n\n#bot #covid #COVID19 #coronavirus'
+    return message

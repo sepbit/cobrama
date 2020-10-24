@@ -23,7 +23,7 @@ from urllib.parse import urlencode
 
 def statuses(instance, token, data):
     '''
-    Mastodon statuses
+    Mastodon statuses post
     See https://docs.joinmastodon.org/methods/statuses
     '''
 
@@ -38,6 +38,24 @@ def statuses(instance, token, data):
             'Authorization': 'Bearer ' + token
         },
         method='POST'
+    )
+    with urlopen(req) as res:
+        res = res.read()
+
+    return json.loads(res)
+
+
+def delete(instance, token, s_id):
+    '''
+    Mastodon statuses delete
+    See https://docs.joinmastodon.org/methods/statuses
+    '''
+    req = Request(
+        'https://' + instance + '/api/v1/statuses/' + s_id,
+        headers={
+            'Authorization': 'Bearer ' + token
+        },
+        method='DELETE'
     )
     with urlopen(req) as res:
         res = res.read()
