@@ -1,12 +1,12 @@
 # Covid19BR 
 
-> Covid19BR - Report COVID-19 Brasil on Mastodon
+> Covid19BR - Estatísticas da COVID-19 no Brasil para Mastodon
 
-Open data [Disease.sh](https://github.com/disease-sh/API)
+Dados abertos [Disease.sh](https://github.com/disease-sh/API)
 
-This package is compatible with [Pylint](https://www.pylint.org).
+Esse pacote é compatível com [Pylint](https://www.pylint.org).
 
-# Install
+# Instalação
 
 ``` bash
 # apt install -y python3 python3-pip python3-setuptools python3-wheel python3-venv python3-dev
@@ -18,36 +18,48 @@ $ source ./env/bin/activate
 $ python3 -m pip install .
 ```
 
-# Usage
+# Configuração
 
-Define the `INSTANCE` and `TOKEN` variables in your development environment, see `.env` file
+Em sua instância [Mastodon](https://joinmastodon.org), crie um aplicativo com a permissão `write:statuses`
+
+Defina as variáveis do ambiente `INSTANCE` e `TOKEN`, veja o arquivo [.env](.env)
 
 ``` bash
 $ export INSTANCE="foo bar"
 $ export TOKEN="bar foo"
 ```
 
-# Usage
+## Execução
 
-If there are no problems, there will be no message
+Se você não receber mensagem, deu tudo certo!
 
 ``` bash
 $ source ./env/bin/activate
 $ covid19br 
 ```
 
-# Change log
+## Testes
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+Execução de testes e verificar a cobertura de código
 
-## Contributing
+``` bash
+$ source ./env/bin/activate
+$ pip install -r requeriments.txt
+$ tox 
+```
 
-Pull Requests not accepted.
+## Registro de alterações
 
-## Security
+Por favor veja o arquivo [CHANGELOG](CHANGELOG.md) para mais informações.
 
-If you discover any security related issues, please email `contato@sepbit.com` instead of using the issue tracker.
+## Contribuição
 
-## License
+Pull Requests não serão aceitos.
 
-GPL-3.0-or-later, please see [COPYING](COPYING) file for more information.
+## Segurança
+
+Se você descobrir algum problema relacionado à segurança, envie um e-mail para `contato@sepbit.com` em vez de usar o issue.
+
+## Licença
+
+GPL-3.0-or-later, por favor veja o arquivo [COPYING](COPYING) para mais informações.
