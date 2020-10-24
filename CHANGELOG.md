@@ -2,6 +2,13 @@
 
 See [Keep a Changelog](http://keepachangelog.com/).
 
+## [2.1.1] - 2020-10-24
+### Added
+- Add tests
+
+### Changed
+- Some improvements
+
 ## [2.1.0] - 2020-10-23
 ### Removed
 - Mastodon.py
