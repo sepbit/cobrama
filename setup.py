@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 '''
-Covid19BR - Report COVID-19 Brasil on Mastodon
+Cobrama - Estatísticas da COVID-19 no Brasil para Mastodon
 Copyright (C) 2020 Vitor Guia
 
 This program is free software: you can redistribute it and/or modify
@@ -24,9 +24,9 @@ with open('README.md', 'r') as f:
     README = f.read()
 
 setup(
-    name='sepbit.covid19br',
-    version='2.1.0',
-    description='Report COVID-19 Brasil on Mastodon',
+    name='sepbit.cobrama',
+    version='2.1.2',
+    description='Estatísticas da COVID-19 no Brasil para Mastodon',
     long_description=README,
     license='GPL-3.0-or-later',
     keywords='Sepbit COVID-19 Mastodon',
@@ -34,8 +34,8 @@ setup(
     maintainer='Sepbit',
     maintainer_email='contato@sepbit.com',
     author_email='contato@vitor.guia.nom.br',
-    url='https://gitlab.com/sepbit/covid19br',
-    packages=['sepbit.covid19br'],
+    url='https://gitlab.com/sepbit/cobrama',
+    packages=['sepbit.cobrama'],
     python_requires='~=3.7',
     install_requires=['setuptools'],
     extras_require={
@@ -45,7 +45,7 @@ setup(
     test_suite='test',
     entry_points={
         'console_scripts': [
-            'covid19br=sepbit.covid19br.__main__:main',
+            'cobrama=sepbit.cobrama.__main__:main',
         ],
     },
     classifiers=[

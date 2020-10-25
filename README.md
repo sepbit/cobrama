@@ -1,6 +1,8 @@
-# Covid19BR 
+# Cobrama 
 
-> Covid19BR - Estatísticas da COVID-19 no Brasil para Mastodon
+> COvid no BRAsil para MAstodon
+
+Estatísticas da COVID-19 no Brasil para Mastodon
 
 Dados abertos [Disease.sh](https://github.com/disease-sh/API)
 
@@ -35,7 +37,7 @@ Se você não receber mensagem, deu tudo certo!
 
 ``` bash
 $ source ./env/bin/activate
-$ covid19br 
+$ cobrama 
 ```
 
 ## Testes

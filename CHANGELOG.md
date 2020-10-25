@@ -2,6 +2,10 @@
 
 See [Keep a Changelog](http://keepachangelog.com/).
 
+## [2.1.2] - 2020-10-25
+### Changed
+- Some improvements
+
 ## [2.1.1] - 2020-10-24
 ### Added
 - Add tests

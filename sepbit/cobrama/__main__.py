@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 '''
-Covid19BR - Report COVID-19 Brasil on Mastodon
+Cobrama - Estatísticas da COVID-19 no Brasil para Mastodon
 Copyright (C) 2020 Vitor Guia
 
 This program is free software: you can redistribute it and/or modify
@@ -20,8 +20,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import time
 from os import environ
-from sepbit.covid19br.mastodon import statuses
-from sepbit.covid19br.disease import brazil, world
+from sepbit.cobrama.mastodon import statuses
+from sepbit.cobrama.disease import brazil, world
 
 
 def main():

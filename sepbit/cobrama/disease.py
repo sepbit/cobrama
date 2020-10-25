@@ -1,5 +1,5 @@
 '''
-Covid19BR - Report COVID-19 Brasil on Mastodon
+Cobrama - Estatísticas da COVID-19 no Brasil para Mastodon
 Copyright (C) 2020 Vitor Guia
 
 This program is free software: you can redistribute it and/or modify

@@ -1,6 +1,6 @@
 """
-Hellopy - Boilerplate Python + PyPI
-Copyright (C) 2019  Sepbit
+Cobrama - Estatísticas da COVID-19 no Brasil para Mastodon
+Copyright (C) 2020  Vitor Guia
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import unittest
 from os import environ
-from sepbit.covid19br.mastodon import statuses, delete
+from sepbit.cobrama.mastodon import statuses, delete
 
 
 class MastodonTest(unittest.TestCase):
