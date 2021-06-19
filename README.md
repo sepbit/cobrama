@@ -17,6 +17,7 @@ Esse pacote é compatível com [Pylint](https://www.pylint.org).
 ``` bash
 $ python3 -m venv env
 $ source ./env/bin/activate
+$ pip install -r requeriments.txt
 $ python3 -m pip install .
 ```
 
@@ -36,8 +37,7 @@ $ export TOKEN="bar foo"
 Se você não receber mensagem, deu tudo certo!
 
 ``` bash
-$ source ./env/bin/activate
-$ cobrama 
+$ ./env/bin/cobrama 
 ```
 
 ## Testes
@@ -45,9 +45,7 @@ $ cobrama
 Execução de testes e verificar a cobertura de código
 
 ``` bash
-$ source ./env/bin/activate
-$ pip install -r requeriments.txt
-$ tox 
+$ ./env/bin/tox 
 ```
 
 ## Registro de alterações
