@@ -29,7 +29,7 @@ class DiseaseTest(unittest.TestCase):
         """
         Test mask_date function
         """
-        self.assertEqual(mask_date(1603547325550), '24/10/2020 10:48:45')
+        self.assertEqual(mask_date(1603547325550), '24/10/2020 13:48:45')
 
 
     def test_mask_money(self):
