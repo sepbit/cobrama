@@ -23,20 +23,19 @@ from sepbit.sistamapy.statuses import Statuses
 
 class MastodonTest(unittest.TestCase):
     '''
-    Test mastodon.py module
+    Test Mastodon integration 
     '''
 
     def test_statuses(self):
         toot = Statuses(
             environ['INSTANCE'],
-            environ['TOKEN']
+            environ['TOKEN'],
         )
-
+        
         '''
         Test statuses function
         '''
         result = toot.post({
-            'spoiler_text' : 'teste',
             'status': 'teste',
             'language': 'por',
             'visibility': 'public'
