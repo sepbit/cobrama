@@ -2,6 +2,10 @@
 
 See [Keep a Changelog](http://keepachangelog.com/).
 
+## [2.2.0] - 2022-03-19
+### Changed
+- Move to Sistamapy library
+
 ## [2.1.2] - 2020-10-25
 ### Changed
 - Some improvements

@@ -1,6 +1,6 @@
 '''
-Mastodon.py Simple statuses Mastodon
-Copyright (C) 2020 Vitor Guia
+Cobrama - Estatísticas da COVID-19 no Brasil para Mastodon
+Copyright (C) 2020-2022 Vitor Guia
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import unittest
 from os import environ
-from sepbit.cobrama.mastodon import statuses, delete
+from sepbit.sistamapy.statuses import Statuses
 
 
 class MastodonTest(unittest.TestCase):
@@ -27,19 +27,20 @@ class MastodonTest(unittest.TestCase):
     '''
 
     def test_statuses(self):
+        toot = Statuses(
+            environ['INSTANCE'],
+            environ['TOKEN']
+        )
+
         '''
         Test statuses function
         '''
-        result = statuses(
-            environ['INSTANCE'],
-            environ['TOKEN'],
-            data={
-                'spoiler_text' : 'teste',
-                'status': 'teste',
-                'language': 'por',
-                'visibility': 'public'
-            }
-        )
+        result = toot.post({
+            'spoiler_text' : 'teste',
+            'status': 'teste',
+            'language': 'por',
+            'visibility': 'public'
+        })
 
         self.assertTrue(result)
 
@@ -47,11 +48,7 @@ class MastodonTest(unittest.TestCase):
         Test delete function
         '''
         self.assertTrue(
-            delete(
-                environ['INSTANCE'],
-                environ['TOKEN'],
-                result['id']
-            )
+            toot.delete( result['id'] )
         )
 
 

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 '''
 Cobrama - Estatísticas da COVID-19 no Brasil para Mastodon
-Copyright (C) 2020 Vitor Guia
+Copyright (C) 2020-2022 Vitor Guia
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -25,7 +25,7 @@ with open('README.md', 'r') as f:
 
 setup(
     name='sepbit.cobrama',
-    version='2.1.2',
+    version='2.2.0',
     description='Estatísticas da COVID-19 no Brasil para Mastodon',
     long_description=README,
     license='GPL-3.0-or-later',
@@ -37,7 +37,7 @@ setup(
     url='https://gitlab.com/sepbit/cobrama',
     packages=['sepbit.cobrama'],
     python_requires='~=3.7',
-    install_requires=['setuptools'],
+    install_requires=['setuptools', 'sepbit.sistamapy'],
     extras_require={
         'dev': ['check-manifest'],
         'test': ['coverage'],

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 '''
 Cobrama - Estatísticas da COVID-19 no Brasil para Mastodon
-Copyright (C) 2020 Vitor Guia
+Copyright (C) 2020-2022 Vitor Guia
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -20,8 +20,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import time
 from os import environ
-from sepbit.cobrama.mastodon import statuses
 from sepbit.cobrama.disease import brazil, world
+from sepbit.sistamapy.statuses import Statuses
 
 
 def main():
@@ -31,27 +31,24 @@ def main():
     environ['TZ'] = 'America/Sao_Paulo'
     time.tzset()
 
-    statuses(
+    toot = Statuses(
         environ['INSTANCE'],
-        environ['TOKEN'],
-        data = {
-            'spoiler_text' : 'Atualização COVID-19 Brasil',
-            'status': brazil(),
-            'language': 'por',
-            'visibility': 'public'
-        }
+        environ['TOKEN']
     )
 
-    statuses(
-        environ['INSTANCE'],
-        environ['TOKEN'],
-        data = {
+    toot.post({
+        'spoiler_text' : 'Atualização COVID-19 Brasil',
+        'status': brazil(),
+        'language': 'por',
+        'visibility': 'public'
+    })
+
+    toot.post({
             'spoiler_text' : 'Atualização COVID-19 Mundo',
             'status': world(),
             'language': 'por',
             'visibility': 'public'
-        }
-    )
+    })
 
 
 if __name__ == '__main__':
