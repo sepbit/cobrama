@@ -36,7 +36,7 @@ setup(
     author_email='contato@vitor.guia.nom.br',
     url='https://gitlab.com/sepbit/cobrama',
     packages=['sepbit.cobrama'],
-    python_requires='~=3.7',
+    python_requires='~=3.9',
     install_requires=['setuptools', 'sepbit.sistamapy'],
     extras_require={
         'dev': ['check-manifest'],
